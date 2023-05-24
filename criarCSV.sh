@@ -24,7 +24,11 @@ ano=$(( RANDOM % 12 + 2011))
 modeloVar=$(( RANDOM % 6 ))
 corVar=$(( RANDOM % 6 ))
 statusVar=$(( RANDOM % 2 ))
-echo "">>$arquivo
+
+echo "$ano,\
+${modelos[$modeloVar]},\
+${cores[$corVar]},\
+${status[$statusVar]}">>$arquivo
 done
 
 # Mensagem para indicar que o script finalizou
