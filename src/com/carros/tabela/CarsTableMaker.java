@@ -37,9 +37,11 @@ public class CarsTableMaker {
     public static void preencherTabela(File tabela) {
 
         int ano, modeloVar, corVar, statusVar;
-        String[] modelo = {"Strada", "Focus"};
-        String[] cor = {"amarelo", "vermelho", "azul", "preto", "prata",
-                "cinza", "bege", "verde"};
+        String[] modelo = {"Strada", "Hb20", "Mobi", "Onix", "Gol",
+                "Tracker", "Creta", "T-cross", "Compass", "Onix-plus",
+                "Renegade", "Toro", "Pulse", "Kicks", "Corolla", "Hilux"};
+        String[] cor = {"amarelo", "vermelho", "azul", "preto",
+                "prata", "cinza", "bege", "verde"};
         String[] condicoes = {"novo", "usado"};
 
         try {
@@ -49,15 +51,26 @@ public class CarsTableMaker {
             writer.write("Ano,Modelo,Cor,Condicoes\n");
             for (int i = 0; i < 100; i++) {
                 ano = 2011 + random.nextInt(12);
-                modeloVar = random.nextInt(2);
-                corVar = random.nextInt(8);
+                modeloVar = random.nextInt(17);
+                corVar = random.nextInt(9);
                 statusVar = random.nextInt(2);
 
-                String linha = ano + ","
+                String fabricante = "";
+                switch (modelo[modeloVar]) {
+                    case "Strada", "Mobi", "Toro", "Pulse" -> fabricante = "Fiat";
+                    case  "Hb20", "Creta" -> fabricante = "Hyundai";
+                    case "Onix", "Tracker", "Onix-plus" -> fabricante = "Chevrolet";
+                    case "Gol", "T-cross" -> fabricante = "Volkswagen";
+                    case "Compass", "Renegade" -> fabricante = "Jeep";
+                    case "Kicks" -> fabricante = "Nissa";
+                    case "Corolla", "Hilux" -> fabricante = "Toyota";
+                }
+
+                String linha = fabricante + ","
                         + modelo[modeloVar] + ","
+                        + ano + ","
                         + cor[corVar] + ","
                         + condicoes[statusVar];
-
                 writer.append(linha).append("\n");
             }
             writer.close();
