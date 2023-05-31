@@ -11,7 +11,7 @@ public class CarsTableMaker {
     Metodo para checar se a tabela carros.csv já existe;
     caso negativo, criar um novo
      */
-    public static void criarTabela() {
+    void criarTabela() {
         System.out.println("Tabela carros.csv");
 
         String tabelaNome = "carros.csv";
@@ -21,8 +21,8 @@ public class CarsTableMaker {
             System.out.println("Arquivo existe e está na pasta"
                     + tabela.getAbsolutePath());
         } else {
-            System.out.println("Arquivo não existe. Criando um novo...");
             try {
+                System.out.println("Arquivo não existe. Criando um novo...");
                 tabela.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -34,7 +34,7 @@ public class CarsTableMaker {
     /*
     Metodo para popular a tabela carros.csv com dados aleatórios
      */
-    public static void preencherTabela(File tabela) {
+    private static void preencherTabela(File tabela) {
 
         int ano, modeloVar, corVar, statusVar;
         String[] modelo = {"Strada", "Hb20", "Mobi", "Onix", "Gol",
