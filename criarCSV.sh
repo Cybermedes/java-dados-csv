@@ -45,7 +45,7 @@ case ${modelos[$modeloVar]} in
     fabricante="Jeep"
         ;;
     "Kicks" )
-    fabricante="Nissa"
+    fabricante="Nissan"
         ;;
     "Corolla" | "Hilux" )
     fabricante="Toyota"
