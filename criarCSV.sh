@@ -8,18 +8,20 @@ if [[ -f "$arquivo" ]]; then
 else
     echo "Criando arquivo $arquivo"
     touch $arquivo
-    echo "Ano,Modelo,Cor,Novo">$arquivo
+    echo "Fabricante,Modelo,Ano,Cor,Condicoes">$arquivo
 fi
 
 # Declara as arrays que irão conter os dados que irão preencher as tabelas
-declare -a modelos=()
-declare -a cores=("amarelo" "vermelho" "azul" "preto" \
-"prata" "branco")
+declare -a modelos=("Strada" "Hb20" "Mobi" "Onix" "Gol"
+        "Tracker" "Creta" "T-cross" "Compass" "Onix-plus"
+        "Renegade" "Toro" "Pulse" "Kicks" "Corolla" "Hilux")
+declare -a cores=("amarelo" "vermelho" "azul" "preto"
+        "prata" "cinza" "bege" "verde")
 declare -a status=("novo" "usado")
 
 # Loop para criar linhas contendo dados aleatorios
 echo "Criando tabela"
-for (( i = 1; i <= 50; i++ )); do
+for (( i = 0; i < 100; i++ )); do
 ano=$(( RANDOM % 12 + 2011))
 modeloVar=$(( RANDOM % 6 ))
 corVar=$(( RANDOM % 6 ))
