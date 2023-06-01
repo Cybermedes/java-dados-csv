@@ -23,32 +23,32 @@ declare -a status=("novo" "usado")
 echo "Criando tabela"
 for (( i = 0; i < 100; i++ )); do
 ano=$(( RANDOM % 12 + 2011))
-modeloVar=$(( RANDOM % 6 ))
-corVar=$(( RANDOM % 6 ))
+modeloVar=$(( RANDOM % 17 ))
+corVar=$(( RANDOM % 9 ))
 statusVar=$(( RANDOM % 2 ))
 
 fabricante=""
 case ${modelos[$modeloVar]} in
     "Strada" | "Mobi" | "Toro" | "Pulse" )
-    fabricante = "Fiat"
+    fabricante="Fiat"
         ;;
     "Hb20" | "Creta" )
-    fabricante = "Hyundai"
+    fabricante="Hyundai"
         ;;
     "Onix" | "Tracker" | "Onix-plus" )
-    fabricante = "Chevrolet"
+    fabricante="Chevrolet"
         ;;
     "Gol" | "T-cross" )
-    fabricante = "Volkswagen"
+    fabricante="Volkswagen"
         ;;
     "Compass" | "Renegade" )
-    fabricante = "Jeep"
+    fabricante="Jeep"
         ;;
     "Kicks" )
-    fabricante = "Nissa"
+    fabricante="Nissa"
         ;;
     "Corolla" | "Hilux" )
-    fabricante = "Toyota"
+    fabricante="Toyota"
         ;;
 esac
 
