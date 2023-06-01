@@ -58,11 +58,11 @@ public class CarsTableMaker {
                 String fabricante = "";
                 switch (modelo[modeloVar]) {
                     case "Strada", "Mobi", "Toro", "Pulse" -> fabricante = "Fiat";
-                    case  "Hb20", "Creta" -> fabricante = "Hyundai";
+                    case "Hb20", "Creta" -> fabricante = "Hyundai";
                     case "Onix", "Tracker", "Onix-plus" -> fabricante = "Chevrolet";
                     case "Gol", "T-cross" -> fabricante = "Volkswagen";
                     case "Compass", "Renegade" -> fabricante = "Jeep";
-                    case "Kicks" -> fabricante = "Nissa";
+                    case "Kicks" -> fabricante = "Nissan";
                     case "Corolla", "Hilux" -> fabricante = "Toyota";
                 }
 

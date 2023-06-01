@@ -27,8 +27,34 @@ modeloVar=$(( RANDOM % 6 ))
 corVar=$(( RANDOM % 6 ))
 statusVar=$(( RANDOM % 2 ))
 
-echo "$ano,\
+fabricante=""
+case ${modelos[$modeloVar]} in
+    "Strada" | "Mobi" | "Toro" | "Pulse" )
+    fabricante = "Fiat"
+        ;;
+    "Hb20" | "Creta" )
+    fabricante = "Hyundai"
+        ;;
+    "Onix" | "Tracker" | "Onix-plus" )
+    fabricante = "Chevrolet"
+        ;;
+    "Gol" | "T-cross" )
+    fabricante = "Volkswagen"
+        ;;
+    "Compass" | "Renegade" )
+    fabricante = "Jeep"
+        ;;
+    "Kicks" )
+    fabricante = "Nissa"
+        ;;
+    "Corolla" | "Hilux" )
+    fabricante = "Toyota"
+        ;;
+esac
+
+echo "$fabricante,\
 ${modelos[$modeloVar]},\
+$ano,\
 ${cores[$corVar]},\
 ${status[$statusVar]}">>$arquivo
 done
