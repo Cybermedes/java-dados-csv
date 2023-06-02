@@ -17,5 +17,10 @@ public class Main {
                 .collect(Collectors.toList());
 
         veiculos.forEach((veiculo) -> System.out.println(veiculo));
+
+        //Imprime número total de veículos
+        System.out.println("=================================================================");
+        int total = veiculos.size();
+        System.out.println("Numero de veiculos: " + total);
     }
 }
