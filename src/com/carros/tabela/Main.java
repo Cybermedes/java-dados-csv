@@ -13,10 +13,11 @@ public class Main {
         //Imrpime todos os objetos
         List<String> lines = TextLoader.getLines("carros.csv");
         List<Carro> veiculos = lines.stream()
-                .map((line) -> CarroRecordUtil.parseCarro(line))
-                .collect(Collectors.toList());
+                .map(CarroRecordUtil::parseCarro)
+                .toList();
 
-        veiculos.forEach((veiculo) -> System.out.println(veiculo));
+        System.out.println("=================================================================");
+        veiculos.forEach(System.out::println);
 
         //Imprime número total de veículos
         System.out.println("=================================================================");

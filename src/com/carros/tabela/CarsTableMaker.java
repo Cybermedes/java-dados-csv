@@ -18,11 +18,11 @@ public class CarsTableMaker {
         File tabela = new File(tabelaNome);
 
         if (tabela.exists()) {
-            System.out.println("Arquivo existe e está na pasta"
+            System.out.println("Arquivo existe e está na pasta: "
                     + tabela.getAbsolutePath());
         } else {
             try {
-                System.out.println("Arquivo não existe. Criando um novo...");
+                System.out.println("Arquivo carros.csv não existe. Criando um novo...");
                 tabela.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
