@@ -8,7 +8,6 @@ if [[ -f "$arquivo" ]]; then
 else
     echo "Criando arquivo $arquivo"
     touch $arquivo
-    echo "Fabricante,Modelo,Ano,Cor,Condicoes">$arquivo
 fi
 
 # Declara as arrays que irão conter os dados que irão preencher as tabelas

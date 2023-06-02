@@ -48,7 +48,6 @@ public class CarsTableMaker {
             Random random = new Random();
             FileWriter writer = new FileWriter(tabela);
 
-            writer.write("Fabricante,Modelo,Ano,Cor,Condicoes\n");
             for (int i = 0; i < 100; i++) {
                 ano = 2011 + random.nextInt(12);
                 modeloVar = random.nextInt(17);
