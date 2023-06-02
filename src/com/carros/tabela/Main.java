@@ -23,5 +23,24 @@ public class Main {
         System.out.println("=================================================================");
         int total = veiculos.size();
         System.out.println("Numero de veiculos: " + total);
+
+        //Filtra todos os carros que são da Nissan
+        System.out.println("=================================================================");
+        long numero = veiculos.stream().filter(carro -> carro.getFabricante().equals("Nissan"))
+                .count();
+        System.out.println("Numero de veiculos Nissan: " + numero);
+
+        //Filtra todos os carros fabricados após 2018
+        System.out.println("=================================================================");
+        int ano = 2018;
+        long novos = veiculos.stream().filter(carro -> carro.getAno() > ano)
+                .count();
+        System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + novos);
+
+        //Filtra todos os carros fabricados em e antes de 2018
+        System.out.println("=================================================================");
+        long velhos = veiculos.stream().filter(carro -> carro.getAno() <= ano)
+                .count();
+        System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + velhos);
     }
 }
