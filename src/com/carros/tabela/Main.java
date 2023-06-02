@@ -1,6 +1,8 @@
 package com.carros.tabela;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -42,5 +44,23 @@ public class Main {
         long velhos = veiculos.stream().filter(carro -> carro.getAno() <= ano)
                 .count();
         System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + velhos);
+
+        //Imprime todos os fabricantes contidos na lista
+        System.out.println("=================================================================");
+        Set<String> fabricantesSet = new HashSet<>();
+        for (Carro carros : veiculos) {
+            String montadora = carros.getFabricante();
+            fabricantesSet.add(montadora);
+        }
+        System.out.println("As montadoras na tabela:\n" + fabricantesSet);
+
+        //Imprime todos as cores contidas na lista
+        System.out.println("=================================================================");
+        Set<String> coresSet = new HashSet<>();
+        for (Carro carros : veiculos) {
+            String pintura = carros.getCor();
+            coresSet.add(pintura);
+        }
+        System.out.println("As montadoras na tabela:\n" + coresSet);
     }
 }
