@@ -27,7 +27,7 @@ public class CarsTableMaker {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            preencherTabela(tabela);
+            CarsTableMaker.preencherTabela(tabela);
         }
     }
 
@@ -50,8 +50,8 @@ public class CarsTableMaker {
 
             for (int i = 0; i < 100; i++) {
                 ano = 2011 + random.nextInt(12);
-                modeloVar = random.nextInt(17);
-                corVar = random.nextInt(9);
+                modeloVar = random.nextInt(16);
+                corVar = random.nextInt(8);
                 statusVar = random.nextInt(2);
 
                 String fabricante = "";
