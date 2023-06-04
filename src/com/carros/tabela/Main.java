@@ -1,65 +1,58 @@
 package com.carros.tabela;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        CarsTableMaker tabelaCarros = new CarsTableMaker();
-        tabelaCarros.criarTabela();
+        CarsTableMaker carsTable = new CarsTableMaker();
+        carsTable.criarTabela();
 
         //Imrpime todos os objetos
         List<String> lines = TextLoader.getLines("carros.csv");
-        List<Carro> veiculos = lines.stream()
+        List<Carro> vehicles = lines.stream()
                 .map(CarroRecordUtil::parseCarro)
                 .toList();
 
-        System.out.println("=================================================================");
-        veiculos.forEach(System.out::println);
+        tableSeparator();
+        vehicles.forEach(System.out::println);
 
         //Imprime número total de veículos
-        System.out.println("=================================================================");
-        int total = veiculos.size();
+        tableSeparator();
+        int total = vehicles.size();
         System.out.println("Numero de veiculos: " + total);
 
         //Filtra todos os carros que são da Nissan
-        System.out.println("=================================================================");
-        long numero = veiculos.stream().filter(carro -> carro.getFabricante().equals("Nissan"))
-                .count();
-        System.out.println("Numero de veiculos Nissan: " + numero);
+        tableSeparator();
+        long numberOfNissanVehicles = vehicles.stream().filter(carro -> carro.fabricante().equals("Nissan")).count();
+        System.out.println("Numero de veiculos Nissan: " + numberOfNissanVehicles);
 
         //Filtra todos os carros fabricados após 2018
-        System.out.println("=================================================================");
+        tableSeparator();
         int ano = 2018;
-        long novos = veiculos.stream().filter(carro -> carro.getAno() > ano)
-                .count();
-        System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + novos);
+        long vehiclesAfter2018 = vehicles.stream().filter(carro -> carro.ano() > ano).count();
+        System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + vehiclesAfter2018);
 
         //Filtra todos os carros fabricados em e antes de 2018
-        System.out.println("=================================================================");
-        long velhos = veiculos.stream().filter(carro -> carro.getAno() <= ano)
-                .count();
-        System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + velhos);
+        tableSeparator();
+        long vehiclesBefore2018 = vehicles.stream().filter(carro -> carro.ano() <= ano).count();
+        System.out.println("Numero de veiculos fabricados antes de " + ano + ": " + vehiclesBefore2018);
 
         //Imprime todos os fabricantes contidos na lista
-        System.out.println("=================================================================");
-        Set<String> fabricantesSet = new HashSet<>();
-        for (Carro carros : veiculos) {
-            String montadora = carros.getFabricante();
-            fabricantesSet.add(montadora);
-        }
-        System.out.println("As montadoras na tabela:\n" + fabricantesSet);
+        tableSeparator();
+        Set<String> manufacturers = vehicles.stream().map(Carro::fabricante).collect(Collectors.toSet());
+        System.out.println("As montadoras na tabela:\n" + manufacturers);
 
         //Imprime todos as cores contidas na lista
+        tableSeparator();
+        Set<String> colors = vehicles.stream().map(Carro::cor).collect(Collectors.toSet());
+        System.out.println("As montadoras na tabela:\n" + colors);
+    }
+
+    private static void tableSeparator() {
         System.out.println("=================================================================");
-        Set<String> coresSet = new HashSet<>();
-        for (Carro carros : veiculos) {
-            String pintura = carros.getCor();
-            coresSet.add(pintura);
-        }
-        System.out.println("As montadoras na tabela:\n" + coresSet);
     }
 }
