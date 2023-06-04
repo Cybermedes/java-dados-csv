@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CarroRecordUtil {
+public class CarroUtilList {
 
     private static final int INDEX_FABRICANTE = 0;
     private static final int INDEX_MODELO = 1;

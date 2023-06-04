@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-class TextLoader {
-    public static List<String> getLines(String nomeArquivo) {
+class LeitorDeTexto {
+    public static List<String> lerLinhas(String nomeArquivo) {
 
         List<String> linhas = new ArrayList<>();
 

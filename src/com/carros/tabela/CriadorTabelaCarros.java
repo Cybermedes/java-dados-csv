@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-public class CarsTableMaker {
+public class CriadorTabelaCarros {
 
     /*
     Metodo para checar se a tabela carros.csv já existe;
@@ -27,7 +27,7 @@ public class CarsTableMaker {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            CarsTableMaker.preencherTabela(tabela);
+            CriadorTabelaCarros.preencherTabela(tabela);
         }
     }
 
